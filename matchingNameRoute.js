@@ -11,6 +11,9 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 const jobSchema = new mongoose.Schema({ description: String });
 const resumeSchema = new mongoose.Schema({ description: String });
 
+jobSchema.index({ description: 'text' });
+resumeSchema.index({ description: 'text' });
+
 const Job = mongoose.model('Job', jobSchema);
 const Resume = mongoose.model('Resume', resumeSchema);
 
